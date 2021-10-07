@@ -22,7 +22,7 @@ public class EvalVisitor extends LabeledExprBaseVisitor<Double> {
         DecimalFormat df = new DecimalFormat("#");
         df.setMaximumFractionDigits(8);
         System.out.println(df.format(value));         // print the result
-        return 0.0;                          // return dummy value
+        return value;                          // return dummy value
     }
 
     /** INT */
