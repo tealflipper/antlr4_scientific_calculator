@@ -1,2 +1,4 @@
 *.class
 L*.java
+*.interp
+*.tokens
