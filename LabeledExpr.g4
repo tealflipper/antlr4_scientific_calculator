@@ -7,16 +7,20 @@ stat:   expr NEWLINE                # printExpr
     |   'clear' NEWLINE             # clear
     ;
 
-expr:   expr op=('*'|'/') expr      # MulDiv
+expr:   expr op=('*'|'/'|'^') expr  # MulDivPow
     |   expr op=('+'|'-') expr      # AddSub
+    |   op=('log'|'ln') expr        # log
+    |   op=('sin'|'cos'|'tan') expr     # trig
+    |   op=('asin'|'acos'|'atan') expr # invTrig
+    |   'sqrt' expr            # sqrt
     |   FLOAT                       # float
     |   ID                          # id
     |   PI                          # pi
-    |   E                           # exponent
+    |   E                           # euler
     |   '(' expr ')'                # parens
     ;
 
-FLOAT: ('0'..'9')+
+FLOAT:  ('0'..'9')+
     |   ('0'..'9')+ '.' ('0'..'9')* EXPONENT?
     |   '.'  ('0'..'9')+ EXPONENT?
     |   ('0'..'9')+ EXPONENT
@@ -28,9 +32,15 @@ MUL: '*';
 DIV: '/';
 ADD: '+';
 SUB: '-';
+POW: '^';
+LOG10: 'log';
+LN: 'ln';
 COS: 'cos';
 TAN: 'tan';
 SIN: 'sin';
+ACOS: 'acos';
+ASIN: 'asin';
+ATAN: 'atan';
 SQRT: 'sqrt';
 PI: ('pi');
 E: 'e';
