@@ -24,8 +24,8 @@ public class EvalVisitor extends LabeledExprBaseVisitor<Double> {
 
     /** INT */
     @Override
-    public Double visitInt(LabeledExprParser.IntContext ctx) {
-        return Double.valueOf(ctx.INT().getText());
+    public Double visitFloat(LabeledExprParser.FloatContext ctx) {
+        return Double.valueOf(ctx.FLOAT().getText());
     }
 
     /** ID */
@@ -39,8 +39,8 @@ public class EvalVisitor extends LabeledExprBaseVisitor<Double> {
     /** expr op=('*'|'/') expr */
     @Override
     public Double visitMulDiv(LabeledExprParser.MulDivContext ctx) {
-        int left = visit(ctx.expr(0));  // get value of left subexpression
-        int right = visit(ctx.expr(1)); // get value of right subexpression
+        double left = visit(ctx.expr(0));  // get value of left subexpression
+        double right = visit(ctx.expr(1)); // get value of right subexpression
         if ( ctx.op.getType() == LabeledExprParser.MUL ) return left * right;
         return left / right; // must be DIV
     }
@@ -48,8 +48,8 @@ public class EvalVisitor extends LabeledExprBaseVisitor<Double> {
     /** expr op=('+'|'-') expr */
     @Override
     public Double visitAddSub(LabeledExprParser.AddSubContext ctx) {
-        int left = visit(ctx.expr(0));  // get value of left subexpression
-        int right = visit(ctx.expr(1)); // get value of right subexpression
+        double left = visit(ctx.expr(0));  // get value of left subexpression
+        double right = visit(ctx.expr(1)); // get value of right subexpression
         if ( ctx.op.getType() == LabeledExprParser.ADD ) return left + right;
         return left - right; // must be SUB
     }

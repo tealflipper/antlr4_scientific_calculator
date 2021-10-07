@@ -9,13 +9,20 @@ stat:   expr NEWLINE                # printExpr
 
 expr:   expr op=('*'|'/') expr      # MulDiv
     |   expr op=('+'|'-') expr      # AddSub
-    |   (SIN|TAN|COS) expr          # Sin
     |   FLOAT                       # float
     |   ID                          # id
     |   PI                          # pi
     |   E                           # exponent
     |   '(' expr ')'                # parens
     ;
+
+FLOAT: ('0'..'9')+
+    |   ('0'..'9')+ '.' ('0'..'9')* EXPONENT?
+    |   '.'  ('0'..'9')+ EXPONENT?
+    |   ('0'..'9')+ EXPONENT
+    ;
+
+EXPONENT: ('e'|'E') ('+'|'-')? ('0'..'9')+ ;
 //assign token name to value in grammar
 MUL: '*';
 DIV: '/';
@@ -29,6 +36,5 @@ PI: ('pi');
 E: 'e';
 ID : [a-zA-Z]+;
 INT: [0-9]+;
-FLOAT: [-+]?([0-9]*[.])?[0-9]+([eE][-+]?[0-9]+)?;
-NEWLINE: '\r'? '\n' ;
+NEWLINE: '\r'? '\n' | ';';
 WS : [ \t]+->skip;
