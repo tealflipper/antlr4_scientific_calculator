@@ -1,4 +1,15 @@
 # antlr4_scientific_calculator
+
+[Repositorio en Github de **Arturo Fuentes Velasco**](https://github.com/tealflipper/antlr4_scientific_calculator)
+- [antlr4_scientific_calculator](#antlr4_scientific_calculator)
+  - [Cómo está articulado el traductor:](#cómo-está-articulado-el-traductor)
+    - [Visitor](#visitor)
+  - [clases usadas](#clases-usadas)
+  - [Ejemplo de la calculadora](#ejemplo-de-la-calculadora)
+  - [instrucciones para compilar y correr:](#instrucciones-para-compilar-y-correr)
+
+Antes de instalar la calculadora, es importante seguir los pasos en tu maquina local para instalar java para [linux](https://openjdk.java.net/install/) o [windows](https://docs.microsoft.com/en-us/java/openjdk/install). Además, debes de [instalar antlr4](https://www.antlr.org/) para tu maquina.
+
 ## Cómo está articulado el traductor:
 ![Diagrama del traductor](imgs/diagrama_visitor.png)
 
@@ -22,6 +33,10 @@ En nuestra calculadora estamos usando nuestra implementación del visitor para e
 
 ![Diagrama del traductor con visitor](imgs/calculatorMain.png)
 
+## Ejemplo de la calculadora
+
+![Diagrama del traductor con visitor](imgs/CalculatorGui.png)
+
 
 ## instrucciones para compilar y correr:
 
@@ -29,4 +44,4 @@ En nuestra calculadora estamos usando nuestra implementación del visitor para e
 
 ```javac Calculator*.java LabeledExpr*.java```
 
-```java CalculatorGUI```
+```java CalculatorGui```
