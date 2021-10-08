@@ -42,6 +42,8 @@ En nuestra calculadora estamos usando nuestra implementación del visitor para e
 
 ```git clone https://github.com/tealflipper/antlr4_scientific_calculator.git```
 
+```cd antlr4_scientific_calculator```
+
 ```antlr4 -no-listener -visitor LabeledExpr.g4```
 
 ```javac Calculator*.java LabeledExpr*.java```
